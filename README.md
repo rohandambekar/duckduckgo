@@ -5,8 +5,8 @@ WebDriverIO
 Cucumber BDD framework
 
 Please find below step for setupL
-# Download repository from- 
+1. Download repository from- https://github.com/rohandambekar/duckduckgo.git
 
-# Run command - npm install
+2. Run command - npm install
 
-# To execute test script run - npm run test
+3. To execute test script run - npm run test
