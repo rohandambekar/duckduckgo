@@ -15,6 +15,7 @@ When ("I am on the home page", () => {
 
     const title= browser.getTitle()
     assert.strictEqual('DuckDuckGo — Privacy, simplified.', title, 'Page title is not displayed correctly')
+    driver.waitUntil(homePage.duckduckgoLogo.isDisplayed())
     
 });
 
@@ -31,7 +32,7 @@ Then ("I expect to see the duckduckgo logo on the page", () => {
 
 
 When ("I type super into the search box", () => {
-
+    
     homePage.searchBox.waitForDisplayed({timeout: 10000})
     homePage.searchBox.setValue('super')
 
@@ -113,9 +114,3 @@ Then ("The Total Direct Queries should be equal to the sum of all the total dire
     
     
 });
-
-Then ("", () => {
-    
-    
-});
-
