@@ -15,6 +15,7 @@ When ("I am on the home page", () => {
 
     const title= browser.getTitle()
     assert.strictEqual('DuckDuckGo — Privacy, simplified.', title, 'Page title is not displayed correctly')
+    
 });
 
 When ("I look at the page", () => {
@@ -24,13 +25,14 @@ When ("I look at the page", () => {
 
 Then ("I expect to see the duckduckgo logo on the page", () => {
     
-    homePage.duckduckgoLogo.waitForDisplayed({timeout: 10000})
+    homePage.duckduckgoLogo.waitForDisplayed({timeout: 20000})
     assert.strictEqual(true, homePage.duckduckgoLogo.isDisplayed(), 'duckduckgo logo is not displayed on Home page')
 });
 
 
 When ("I type super into the search box", () => {
 
+    homePage.searchBox.waitForDisplayed({timeout: 10000})
     homePage.searchBox.setValue('super')
 
 });
@@ -43,6 +45,7 @@ Then ("I expect to see exactly 10 suggestions in the typeahead dropdown", () => 
 
 When ("I type supercalafragalistic into the search box", () => {
 
+    homePage.searchBox.waitForDisplayed({timeout: 10000})
     homePage.searchBox.setValue('supercalafragalistic')
 
 });
@@ -75,6 +78,7 @@ When ("I click on the themes link then click on the dark mode theme button", () 
 
 Then ("I click on the dark mode theme button", () => {
     
+    settingsPage.darkLabel.waitForDisplayed({timeout: 10000})
     settingsPage.darkLabel.click()
     settingsPage.saveAndExitBtn.click()
 });
@@ -89,13 +93,29 @@ Then ("My page background should change colour", () => {
 });
 
 
-Then ("I click on the dark mode theme button", () => {
+Given ("I am on the traffic page", () => {
+    
+    browser.url("https://start.duckduckgo.com/traffic")
+});
+
+
+When ("I click on the 2018 Traffic section", () => {
     
     
 });
 
-
-Then ("I click on the dark mode theme button", () => {
+Then ("I should see all the months listed in the order from Dec to Jan", () => {
     
     
 });
+
+Then ("The Total Direct Queries should be equal to the sum of all the total directs from each month", () => {
+    
+    
+});
+
+Then ("", () => {
+    
+    
+});
+
